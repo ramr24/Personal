@@ -1,7 +1,7 @@
 import pandas as pd
 
-post_patch_column = 'postPatch_label'
-post_patch_pipette_column = 'endPipetteR_label'
+post_patch_column = 'Post patch?'
+post_patch_pipette_column = 'Post patch pipette R'
 
 def nucleated(x):
     nuc_high_seal = x[(x[post_patch_column] == 'Nucleated') | 
