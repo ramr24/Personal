@@ -17,7 +17,7 @@ def partial_nucleated(y):
     nuc_low_seal = y[(y[post_patch_column] == 'Partial-Nucleus') | 
                      (((y[post_patch_column] == 'nucleus_present') | 
                      (y[post_patch_column] == 'nucleus_visible')) & 
-                     (y[post_patch_pipette_column] >= 99))]
+                     (y[post_patch_pipette_column] <= 99))]
     return nuc_low_seal
 
 def outside_out(z):
