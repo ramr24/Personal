@@ -10,28 +10,28 @@ def nucleated(x):
     nuc_high_seal = x[(x[post_patch_column] == 'Nucleated') | 
                       (((x[post_patch_column] == 'nucleus_visible') | 
                       (x[post_patch_column] == 'nucleus_present')) & 
-                      (x[post_patch_pipette_column] >= 100))]
+                      (x[post_patch_pipette_column] >= 50))]
     return nuc_high_seal
 
 def partial_nucleated(y):
     nuc_low_seal = y[(y[post_patch_column] == 'Partial-Nucleus') | 
                      (((y[post_patch_column] == 'nucleus_present') | 
                      (y[post_patch_column] == 'nucleus_visible')) & 
-                     (y[post_patch_pipette_column] <= 99))]
+                     (y[post_patch_pipette_column] < 50))]
     return nuc_low_seal
 
 def outside_out(z):
     no_high_seal = z[(z[post_patch_column] == 'Outside-Out') | 
                      (((z[post_patch_column] == 'nucleus_absent') | 
                      (z[post_patch_column] == 'no_nucleus_visible')) & 
-                     (z[post_patch_pipette_column] >= 100))]
+                     (z[post_patch_pipette_column] >= 50))]
     return no_high_seal
 
 def no_seal(w): 
     no_low_seal = w[(w[post_patch_column] == 'No-Seal') | 
                     (((w[post_patch_column] == 'nucleus_absent') | 
                     (w[post_patch_column] == 'no_nucleus_visible')) & 
-                    (w[post_patch_pipette_column] <= 99))]
+                    (w[post_patch_pipette_column] < 50))]
     return no_low_seal
     
 def entire_cell(v):
