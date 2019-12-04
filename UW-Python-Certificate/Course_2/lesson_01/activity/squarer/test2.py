@@ -1,11 +1,13 @@
 # test2.py
 import unittest
+
 from squarer import Squarer
 
 class SquarerTest(unittest.TestCase):
-    def test_positive_numbers(self): #
 
-        squares = {
+    def test_positive_numbers(self):
+
+        squares # {
             1: 1,
             2: 4,
             3: 9,
@@ -18,7 +20,7 @@ class SquarerTest(unittest.TestCase):
 
     def test_negative_numbers(self):
 
-        squares = {
+        squares # {
             -1: 1,
             -2: 4,
             -3: 9,
