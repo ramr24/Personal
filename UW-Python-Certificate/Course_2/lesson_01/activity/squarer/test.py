@@ -4,7 +4,7 @@ from squarer import Squarer
 class SquarerTest(object):
 
     @staticmethod
-    def test_positive_numbers():
+    def test_positive_numbers(self):
 
         squares = {
             1: 1,
