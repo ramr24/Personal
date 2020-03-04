@@ -55,7 +55,7 @@ def filter_date(df, date_col):
         df: a pandas dataframe with a filtered date range
     """
     df.set_index([date_col], inplace=True)
-    df = df.loc["2020-01-03 10:40:30 -0800":,:]
+    df = df.loc["2019-01-03 09:57:31 -0800":,:] #df = df.loc["2020-01-03 10:40:30 -0800":,:] 
     df.reset_index(inplace=True)
     LOGGER.info("Sorted date to only display 2020 data")
     return df
