@@ -27,7 +27,7 @@ def read_file(path, fields=None):
     return df
 
 
-def merge_dataframes(left_df, right_df, left_col, right_col):
+def merge_dataframes(left_df, right_df, left_col, right_col, join_how):
     """Merges two dataframes together into one dataframe
     Args:
         left_df: a pandas dataframe on the left
@@ -41,7 +41,7 @@ def merge_dataframes(left_df, right_df, left_col, right_col):
                         right = right_df,
                         left_on = left_col,
                         right_on = right_col, 
-                        how = "inner")
+                        how = join_how)
     LOGGER.info("Merged two pandas dataframe into one dataframe")
     return merge_df
 
@@ -113,3 +113,15 @@ def create_container_df(df, container_col):
     LOGGER.info("Created a container_label column to show(ex.'PA')")
     return df
 
+
+def filter_df(df, fil_col, fil_val):
+    """Creates a dataframe based on values from a single column
+     Args:
+        df: a pandas dataframe
+        fil_col(string): column name from dataframe
+        fil_val(string): values to restrict dataframe by
+    Return:
+        df: a pandas dataframe created by values from a single column
+    """
+    df = df[df[fil_col] == fil_val]
+    return df
