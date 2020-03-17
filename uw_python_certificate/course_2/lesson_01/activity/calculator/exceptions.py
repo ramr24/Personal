@@ -1,2 +1,5 @@
+"""Exception raised if not enough operands."""
+
+
 class InsufficientOperands(Exception):
-    pass
+    """Raise exception if not enough operands."""
