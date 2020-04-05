@@ -138,3 +138,14 @@ def create_cond_df(df, col, val):
     LOGGER.info(f"Created a conditional dataframe based on {col} containing {val}")
     return df
 
+
+def create_container_df(df, container_col):
+    """Creates container label based on original container column
+    Args:
+        df: a pandas dataframe
+        container_col: a column name with the container label information
+    Return:
+        df: a pandas dataframe with a new column with container labels
+    """
+    df["collaborator_label"] = df[container_col].str[0:2]
+    return df
