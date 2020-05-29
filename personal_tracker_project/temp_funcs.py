@@ -84,6 +84,7 @@ def filter_date_range(df, date_col, start_date="2020-01-01", end_date = "2020-12
 
     mask = (df[date_col] > start_date) & (df[date_col] <= end_date)
     df = df.loc[mask]
+    df[date_col] = pd.to_datetime(df[date_col]).dt.strftime('%Y-%m-%d')
     df.sort_values([date_col], inplace=True)
     LOGGER.info(f"Filtered dataframe: {start_date} - {end_date}")
     return df
