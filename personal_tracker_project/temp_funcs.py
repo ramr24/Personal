@@ -71,7 +71,7 @@ def drop_nans(df, drop_na_col):
     return df
 
 
-def filter_date_range(df, date_col, start_date="2020-01-01", end_date = "2020-12-31"):
+def filter_date_range(df, date_col, start_date="2020-01-01", end_date="2020-12-31"):
     """Filters and sorts the date column by specific date range in the dataframe.
     Args:
         df: a pandas dataframe
@@ -79,12 +79,9 @@ def filter_date_range(df, date_col, start_date="2020-01-01", end_date = "2020-12
     Returns:
         df: a pandas dataframe with a filtered date range
     """
-    #start_date = "2019-01-01"
-    #end_date = "2020-12-31"
-
     mask = (df[date_col] > start_date) & (df[date_col] <= end_date)
     df = df.loc[mask]
-    df[date_col] = pd.to_datetime(df[date_col]).dt.strftime('%Y-%m-%d')
+    df[date_col] = pd.to_datetime(df[date_col]).dt.strftime("%Y-%m-%d")
     df.sort_values([date_col], inplace=True)
     LOGGER.info(f"Filtered dataframe: {start_date} - {end_date}")
     return df
