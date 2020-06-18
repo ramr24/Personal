@@ -6,11 +6,18 @@ __date__ = "3.16.2020"
 __status__ = "Temporary"
 """
 
+import os
 import pandas as pd
 import logging
 
+
 logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
+
+
+path = os.path.dirname(os.getcwd())
+csv_path = os.path.join(path, "csv/")
+path_jem = os.path.join(csv_path, "jem_metadata.csv")
 
 
 def read_file(path, fields=None):
