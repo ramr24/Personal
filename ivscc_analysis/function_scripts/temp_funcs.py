@@ -103,28 +103,6 @@ def filter_df(df, fil_col, fil_val):
     return df
 
 
-def create_container_col(df, col_label):
-    """Creates container label based on rig operator names
-    Args:
-        df: a pandas dataframe
-        col_label(string): a column name with the container label information
-    Return:
-        df: a pandas dataframe with a new column with container labels
-    """
-    rig_user_dictionary ={"kristenh" : "P1", 
-                          "rustym": "P2", 
-                          "lindsayn": "P8", 
-                          "lisak": "P9",
-                          "ramr": "PA", 
-                          "dijonh": "PB",
-                          "katherineb": "PE", 
-                          "jessicat": "PF"} 
-
-    df["patch_container_label"] = df[col_label].map(rig_user_dictionary)
-    LOGGER.info("Created a patch_container_label column to show(ex.'PA')")
-    return df
-
-
 def create_cond_df(df, col, val):
     """Creates a dataframe based on values from a single column
      Args:
@@ -147,5 +125,51 @@ def create_container_df(df, container_col):
     Return:
         df: a pandas dataframe with a new column with container labels
     """
-    df["collaborator_label"] = df[container_col].str[0:2]
+    df["user_tube_id"] = df[container_col].str[0:2]
+    return df
+
+
+def create_user_tube_id(df, col_label):
+    """Creates user_tube_id column based on rig operator names column
+    Args:
+        df: a pandas dataframe
+        col_label(string): a column name with the container label information
+    Return:
+        df: a pandas dataframe with a new column with container labels
+    """
+    rig_user_dictionary ={"kristenh" : "P1", 
+                          "rustym": "P2", 
+                          "lindsayn": "P8", 
+                          "lisak": "P9",
+                          "ramr": "PA", 
+                          "dijonh": "PB",
+                          "katherineb": "PE", 
+                          "jessicat": "PF",
+                          "sarav": "PJ"} 
+
+    df["user_tube_id"] = df[col_label].map(rig_user_dictionary)
+    LOGGER.info("Created a user_tube_id column to show(ex.'PA')")
+    return df
+
+
+def create_user_ivscc(df, col_label):
+    """Creates user_ivscc column based on rig operator names column
+    Args:
+        df: a pandas dataframe
+        col_label(string): a column name with the container label information
+    Return:
+        df: a pandas dataframe with a new column with container labels
+    """
+    rig_user_dictionary ={"kristenh" : "Kristen", 
+                          "rustym": "Rusty", 
+                          "lindsayn": "Lindsay", 
+                          "lisak": "Lisa",
+                          "ramr": "Ram", 
+                          "dijonh": "DiJon",
+                          "katherineb": "Katie", 
+                          "jessicat": "Jessica",
+                          "sarav": "Sara"} 
+
+    df["user_ivscc"] = df[col_label].map(rig_user_dictionary)
+    LOGGER.info("Created a user_ivscc column to show(ex.'Ram')")
     return df
